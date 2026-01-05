@@ -1,0 +1,23 @@
+.reveal-left {
+  transform: translateX(-70px);
+  opacity: 0;
+  transition: all 1.2s var(--ease);
+}
+
+.reveal-right {
+  transform: translateX(70px);
+  opacity: 0;
+  transition: all 1.2s var(--ease);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+@media (max-width: 768px) {
+  .reveal-left,
+  .reveal-right {
+    transform: translateY(40px);
+  }
+}

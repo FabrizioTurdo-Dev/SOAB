@@ -1,0 +1,131 @@
+/* El contenedor principal ahora es Flexbox */
+.hero {
+  display: flex;
+  align-items: center; /* Centra verticalmente */
+  justify-content: space-between; /* Espacio entre texto y video */
+  gap: 40px; /* Separación entre columnas */
+  padding: 80px 5%; /* Un poco de aire a los costados */
+  max-height: 80vh; /* Que ocupe casi toda la pantalla */
+  background-color: #f9f9f9; /* Color de fondo suave */
+  overflow: hidden; /* Evita scroll horizontal indeseado */
+}
+
+/* Columna de Texto */
+.hero-content {
+  flex: 1; /* Ocupa el espacio disponible */
+  max-width: 600px; /* Que el texto no se estire infinito */
+  z-index: 2;
+}
+
+.hero-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Títulos y textos existentes... */
+.hero h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+/* Columna de Video */
+.hero-media >* {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Centra el video en su columna */
+  position: relative;
+}
+
+/* El contenedor estético del video (Le damos forma de reel/celular) */
+.video-container {
+  width: 100%;
+  max-width: 350px; /* Ancho típico de un celular */
+  aspect-ratio: 9 / 16; /* Mantiene proporción vertical exacta */
+  border-radius: 20px; /* Bordes redondeados modernos */
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* Sombra para que 'flote' */
+  border: 4px solid #fff; /* Opcional: marquito blanco */
+}
+
+.hero-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* IMPORTANTE: Cubre todo el espacio sin deformarse */
+  display: block;
+}
+
+/* --- RESPONSIVE (MÓVIL) --- */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse; /* Ponemos el video ARRIBA o ABAJO del texto? */
+    /* column-reverse: Texto abajo, Video arriba. 
+       column: Texto arriba, Video abajo. */
+    text-align: center;
+    padding: 40px 20px;
+    gap: 30px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem; /* Achicamos título en celu */
+  }
+
+  .hero-actions {
+    justify-content: center; /* Centramos botones */
+  }
+
+  .video-container {
+    max-width: 280px; /* Un poco más chico en mobile para que no ocupe todo */
+  }
+}
+
+/* Asegurate que el padre tenga position relative (ya lo pusimos antes, pero revisalo) */
+.video-container {
+  position: relative; /* Clave para que el botón quede adentro */
+  /* ... tus otros estilos ... */
+ 
+}
+
+.sound-toggle-btn {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  z-index: 10;
+  
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo negro semitransparente */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%; /* Círculo perfecto */
+  width: 40px;
+  height: 40px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.sound-toggle-btn svg {
+  color: white;
+  width: 20px;
+  height: 20px;
+}
+
+.sound-toggle-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}

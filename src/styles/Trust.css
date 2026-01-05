@@ -1,0 +1,57 @@
+.trust {
+  padding: 5rem 1.5rem;
+  background-color: #fafafa;
+}
+
+.trust h2 {
+  text-align: center;
+  font-size: clamp(1.7rem, 4vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
+}
+
+/* CONTENIDO */
+
+.trust-content {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.trust-content p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 2.5rem;
+}
+
+.trust-content strong {
+  font-weight: 600;
+}
+
+/* LISTA */
+
+.trust-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.trust-content li {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.8rem;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .trust {
+    padding: 4rem 1.2rem;
+  }
+
+  .trust-content p {
+    font-size: 1rem;
+  }
+}
