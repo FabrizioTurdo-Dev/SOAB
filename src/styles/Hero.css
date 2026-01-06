@@ -65,14 +65,19 @@
 }
 
 /* --- RESPONSIVE (MÓVIL) --- */
+/* --- RESPONSIVE (MÓVIL) --- */
 @media (max-width: 768px) {
   .hero {
-    flex-direction: column-reverse; /* Ponemos el video ARRIBA o ABAJO del texto? */
-    /* column-reverse: Texto abajo, Video arriba. 
-       column: Texto arriba, Video abajo. */
+    flex-direction: column-reverse; 
+    /* SOLUCIÓN 1: Quitamos el límite de altura para que la caja crezca lo que necesite */
+    max-height: none; 
+    height: auto; 
+    /* SOLUCIÓN 2: Quitamos el hidden para que no recorte nada */
+    overflow: visible; 
+    
     text-align: center;
-    padding: 40px 20px;
-    gap: 30px;
+    padding: 100px 20px 40px 20px; /* Damos más aire arriba por si tienes un menú fijo */
+    gap: 40px;
   }
 
   .hero-content {
@@ -80,15 +85,32 @@
   }
 
   .hero h1 {
-    font-size: 2.5rem; /* Achicamos título en celu */
+    font-size: 2.5rem; 
   }
 
-  .hero-actions {
-    justify-content: center; /* Centramos botones */
+  /* Ajustamos el contenedor del video para que se centre bien */
+  .hero-media {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra el video horizontalmente */
+  }
+
+  /* Forzamos al hijo directo de hero-media a comportarse */
+  .hero-media > * {
+    justify-content: center;
+    flex: initial; /* Reseteamos el flex: 1 de desktop */
   }
 
   .video-container {
-    max-width: 280px; /* Un poco más chico en mobile para que no ocupe todo */
+    /* Un ancho relativo seguro para móviles */
+    width: 80%; 
+    max-width: 300px; 
+    /* Asegura que no se salga de la pantalla */
+    margin: 0 auto; 
+  }
+
+  .hero-actions {
+    justify-content: center;
   }
 }
 
